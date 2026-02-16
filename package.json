@@ -1,0 +1,11 @@
+{
+  "name": "llm-vs-charades",
+  "version": "1.0.0",
+  "description": "Charades web app where you play against Gemini",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
