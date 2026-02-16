@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LLM vs You: Charades</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>🎭 LLM vs You: Charades</h1>
+      <p class="subtitle">1-minute duel: you act, Gemini guesses. Then Gemini acts with an image, you guess.</p>
+
+      <section class="panel score">
+        <div><strong>Time Left:</strong> <span id="timeLeft">60</span>s</div>
+        <div><strong>Your Score:</strong> <span id="userScore">0</span></div>
+        <div><strong>LLM Score:</strong> <span id="llmScore">0</span></div>
+      </section>
+
+      <section class="panel controls">
+        <button id="startBtn">Start 1-Minute Match</button>
+        <button id="nextTurnBtn" disabled>Next Turn</button>
+        <p id="status">Press start to begin.</p>
+      </section>
+
+      <section class="panel" id="humanTurn">
+        <h2>👤 Your Turn to Act</h2>
+        <video id="webcam" autoplay playsinline muted></video>
+        <canvas id="snapshot" width="640" height="480" hidden></canvas>
+        <div class="row">
+          <button id="captureBtn" disabled>Capture Frame & Ask LLM</button>
+        </div>
+        <p><strong>Gemini guess:</strong> <span id="llmGuess">—</span></p>
+        <div class="row">
+          <button id="llmCorrectBtn" disabled>LLM guessed correctly (+1 LLM)</button>
+          <button id="llmWrongBtn" disabled>LLM guessed wrong</button>
+        </div>
+      </section>
+
+      <section class="panel" id="llmTurn">
+        <h2>🤖 Gemini's Turn to Act (Image)</h2>
+        <button id="generateSceneBtn" disabled>Generate Gemini Scene</button>
+        <div class="imageWrap">
+          <img id="llmImage" alt="Gemini generated charades scene" />
+        </div>
+        <div class="row">
+          <input id="userGuessInput" placeholder="Your guess..." />
+          <button id="submitGuessBtn" disabled>Submit Guess</button>
+        </div>
+        <p id="guessResult"></p>
+      </section>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
